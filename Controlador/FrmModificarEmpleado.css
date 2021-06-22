@@ -1,0 +1,81 @@
+*{
+	background-color: #0c343d;
+}
+a{
+	text-decoration: none;
+	color: white;
+}
+table{
+	width: 60%;
+	padding: 50px;
+	padding-bottom: 20px;
+	margin: 100px;
+	margin-bottom: 20px;
+	margin-top: 50px;
+}
+h3{
+	margin: 20px;
+	margin-bottom: 4px;
+	font-size: 20px;
+	text-align: right;
+	position: relative;
+}
+input{
+	height: 25px;
+	background-color: white;
+}
+#do{
+	height: 60px;
+	font-size: 40px;
+	font-weight: bold;
+	color: yellow;
+}
+#no{
+	height: 30px;
+	font-size: 25px;
+	font-weight: bold;
+	color:	#00FFFF;
+}
+#tipo{
+	height: 30px;
+	font-size: 25px;
+	font-weight: bold;
+	color:	#00FFFF;
+}
+#nu{
+	height: 30px;
+	font-size: 25px;
+	font-weight: bold;
+	color:	#00FFFF;
+}
+#ce{
+	height: 30px;
+	font-size: 25px;
+	font-weight: bold;
+	color:	#00FFFF;
+}
+#fe{
+	height: 30px;
+	font-size: 25px;
+	font-weight: bold;
+	color:	#00FFFF;
+}
+#es{
+	height: 50px;
+}
+#actualizar{
+	height: 40px;
+	padding: 6px;
+	font-size: 14px;
+	font-weight: bold;
+	color: white;
+	background-color: black;
+}
+#cancelarr{
+	height: 40px;
+	padding: 6px;
+	font-size: 14px;
+	font-weight: bold;
+	color: white;
+	background-color: black;
+}

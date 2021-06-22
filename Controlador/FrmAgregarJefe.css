@@ -1,0 +1,78 @@
+*{
+	background-color: #0c343d;
+}
+table{
+	width: 60%;
+	padding: 50px;
+	padding-bottom: 20px;
+	margin: 100px;
+	margin-bottom: 20px;
+}
+input:disabled{
+	background:	#A9A9A9;
+}
+input{
+	height: 25px;
+	background-color: white;
+}
+select{
+	height: 25px;
+	background-color: white;
+}
+option{
+	background-color: white;
+}
+#docum{
+	height: 60px;
+	font-size: 40px;
+	font-weight: bold;
+	color: yellow;
+}
+#nombre{
+	height: 30px;
+	font-size: 25px;
+	font-weight: bold;
+	color:	#00FFFF;
+}
+#doc{
+	height: 30px;
+	font-size: 25px;
+	font-weight: bold;
+	color:	#00FFFF;
+}
+#num{
+	height: 30px;
+	font-size: 25px;
+	font-weight: bold;
+	color:	#00FFFF;
+}
+#con{
+	height: 30px;
+	font-size: 25px;
+	font-weight: bold;
+	color:	#00FFFF;
+}
+#pass{
+	height: 30px;
+	font-size: 25px;
+	font-weight: bold;
+	color:	#00FFFF;
+}
+#esreg{
+	height: 50px;
+}
+#button{
+	height: 40px;
+	padding: 6px;
+	font-size: 14px;
+	font-weight: bold;
+	color: black;
+}
+#cancelar{
+	height: 40px;
+	padding: 6px;
+	background-color: black;
+	font-size: 14px;
+	font-weight: bold;
+	color: white;
+}
