@@ -1,0 +1,135 @@
+*{
+	background-color: #0c343d;
+}
+h1{
+	margin: 50px;
+	margin-bottom: 60px;
+	margin-top: 5px;
+	color: yellow;
+	text-align: center;
+	font-size: 40px;
+}
+a{
+	text-decoration: none;
+	color: white;
+}
+#admin{
+	margin-left: 15px;
+	font-size: 20px;
+}
+#cerrar{
+	font-size: 20px;
+	margin-left: 90%;
+}
+#AgrEmp{
+	padding: 8px;
+	font-size: 24px;
+	font-weight: bold;
+	height: 120px; 
+	width: 240px;
+	background-color: white;
+	display:block;
+	margin:auto;
+	margin-bottom: 10px;
+	position: relative;
+	right: 500px;
+}
+#ElimEmp{
+	padding: 8px;
+	font-size: 24px;
+	font-weight: bold;
+	height: 120px; 
+	width: 240px;
+	background-color: white;
+	color: black;
+	display:block;
+	margin:auto;
+	margin-bottom: 10px;
+	position: relative;
+	top: -135px;
+}
+#ConsulEmp{
+	padding: 8px;
+	font-size: 24px;
+	font-weight: bold;
+	height: 120px; 
+	width: 240px;
+	background-color: white;
+	color: black;
+	display:block;
+	margin:auto;
+	margin-bottom: 10px;
+	position: relative;
+	left: 500px;
+	top: -260px;
+}
+#ModifEmp{
+	padding: 8px;
+	font-size: 24px;
+	font-weight: bold;
+	height: 120px; 
+	width: 240px;
+	background-color: white;
+	color: black;
+	display:block;
+	margin:auto;
+	margin-bottom: 10px;
+	position: relative;
+	right: 500px;
+	top: -200px;
+}
+#ConsulReg{
+	padding: 8px;
+	font-size: 24px;
+	font-weight: bold;
+	height: 120px; 
+	width: 240px; 
+	background-color: white;
+	color: black;
+	display:block;
+	margin:auto;
+	margin-bottom: 10px;
+	position: relative;
+	top: -325px;
+}
+#DefTar{
+	padding: 8px;
+	font-size: 24px;
+	font-weight: bold;
+	height: 120px; 
+	width: 240px;
+	background-color: white;
+	color: black;
+	display:block;
+	margin:auto;
+	margin-bottom: 10px;
+	position: relative;
+	left: 500px;
+	top: -455px;
+}
+#DefTur{
+	padding: 8px;
+	font-size: 24px;
+	font-weight: bold;
+	height: 120px; 
+	width: 240px;
+	background-color: white;
+	color: black;
+	display:block;
+	margin:auto;
+	margin-bottom: 10px;
+	position: relative;
+	right: 500px;
+	top: -390px;
+}
+#registro{
+  	padding: 8px;
+	font-size: 14px;
+	font-weight: bold;
+	background-color: black;
+	color: white;
+	display:block;
+	margin:auto;
+	margin-bottom: 10px;
+
+}

@@ -1,0 +1,91 @@
+*{
+	background-color: #0c343d;
+}
+a{
+	text-decoration: none;
+	color: white;
+}
+h3{
+	margin: 20px;
+	margin-bottom: 4px;
+	font-size: 20px;
+	text-align: right;
+	position: relative;
+}
+table{
+	width: 60%;
+	padding: 50px;
+	padding-bottom: 20px;
+	margin: 100px;
+	margin-bottom: 20px;
+	margin-top: 50px;
+}
+input{
+	height: 25px;
+	background-color: white;
+}
+select{
+	height: 25px;
+	background-color: white;
+}
+option{
+	background-color: white;
+}
+#docum{
+	height: 60px;
+	font-size: 40px;
+	font-weight: bold;
+	color: yellow;
+}
+#nombr{
+	height: 30px;
+	font-size: 25px;
+	font-weight: bold;
+	color:	#00FFFF;
+}
+#docu{
+	height: 30px;
+	font-size: 25px;
+	font-weight: bold;
+	color:	#00FFFF;
+}
+#nume{
+	height: 30px;
+	font-size: 25px;
+	font-weight: bold;
+	color:	#00FFFF;
+}
+#cel{
+	height: 30px;
+	font-size: 25px;
+	font-weight: bold;
+	color:	#00FFFF;
+}
+#nac{
+	width: 78%;
+}
+#fecha{
+	height: 30px;
+	font-size: 25px;
+	font-weight: bold;
+	color:	#00FFFF;
+}
+#esreg{
+	height: 50px;
+}
+#butto{
+	height: 40px;
+	padding: 6px;
+	font-size: 14px;
+	font-weight: bold;
+	color: white;
+	background-color: black;
+}
+#can{
+	height: 35px;
+	padding: 6px;
+	background-color: black;
+	font-size: 14px;
+	font-weight: bold;
+	color: white;
+}
