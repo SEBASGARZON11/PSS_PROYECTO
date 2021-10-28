@@ -15,4 +15,5 @@ if ($in)
 echo "El empleado es agregado correctamente";
 else
 echo "Problemas al agregar al empleado";
+
 ?>

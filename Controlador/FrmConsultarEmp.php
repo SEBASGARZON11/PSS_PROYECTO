@@ -92,4 +92,5 @@ if (isset($_POST['btnConsultarTodo']))
 }
 ?> 
 </body>
+
 </html>

@@ -1,5 +1,5 @@
-<?php
 
+<?php
 require "../Modelo/Empleado.php";
 
 $Clase = new Empleado();
@@ -21,4 +21,5 @@ $Clase = new Empleado();
     //echo "Datos Actualizados Correctamente";
 
 ?>
+
 

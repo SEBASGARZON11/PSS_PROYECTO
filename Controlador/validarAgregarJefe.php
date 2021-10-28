@@ -1,3 +1,4 @@
+
 <?php
 require "../Modelo/Jefe.php";
 
@@ -15,4 +16,5 @@ if ($in)
 echo "El administrador se ha agregado correctamente";
 else
 echo "Problemas al agregar el administrador"
+
 ?>

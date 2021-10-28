@@ -17,7 +17,7 @@ class Registro {
 	private $Empleado_IdEmpleado;
 
 	public function Registro() {
-		$this->Conectar = con::Conectarse();
+		$this->Conectar = co::Conectarse();
 	}
 
 	public function getIdRegistro() {
@@ -86,8 +86,8 @@ class Registro {
 
 	public function AgregarRegistro($TipoVehiculo_IdTipVehi,$Empleado_IdEmpleado,$FechaIngreso,$HoraIngreso,$Placa) {
 		//$this->Conexion=Conectarse,$Empleado_IdEmpleado,$FechaIngreso,$HoraIngreso,$Placa();
-		$sql="insert into registro(TipoVehiculo_IdTipVehi,Empleado_IdEmpleado,FechaIngreso, HoraIngreso, Placa)
-		values ('$TipoVehiculo_IdTipVehi','$Empleado_IdEmpleado','$FechaIngreso','$HoraIngreso', '$Placa')";
+		$sql="insert into registro(FechaIngreso, HoraIngreso,TipoVehiculo_IdTipVehi,Empleado_IdEmpleado, Placa)
+		values ($TipoVehiculo_IdTipVehi,$Empleado_IdEmpleado,$FechaIngreso,$HoraIngreso, $Placa)";
 		$resultado=$this->Conectar->query($sql);
 		$this->Conectar->close();
 		return $resultado;
@@ -124,4 +124,5 @@ class Registro {
 		return $resultado;
 	}
 }
+
 ?>

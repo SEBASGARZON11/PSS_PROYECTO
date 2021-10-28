@@ -1,0 +1,26 @@
+*{
+	background-color: #0c343d;
+	margin: 0;
+	padding: 0;
+
+}
+
+.SesionJefe{
+	width: 400px;
+	height: 400px;
+	margin:auto;
+	margin-top: 180px;
+	padding: 20px 40px;
+	color: white;
+}
+
+.SesionJefe h5{
+	text-align: center;
+	height: 50px;
+	font-size: 20px;
+
+}
+
+.controls{
+	margin-bottom: 40px;
+}
