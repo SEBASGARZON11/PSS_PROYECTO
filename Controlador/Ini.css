@@ -1,0 +1,47 @@
+*{
+	background-color: #0c343d;
+}
+img {
+	display:block;
+	margin:auto;
+	padding: 50px;
+}
+a{
+	text-decoration: none;
+	color: white;
+}
+#registro:hover{
+	background: 	#C0C0C0;
+} 
+#login:hover{
+	background: 	#C0C0C0;
+} 
+#registro{
+	height: 35px;
+	width: 10%;
+  	padding: 8px;
+	font-size: 14px;
+	font-weight: bold;
+	background-color: black;
+	color: white;
+	display:block;
+	margin:auto;
+	margin-bottom: 10px;
+
+}
+#login{
+	height: 35px;
+	width: 10%;
+	padding: 8px;
+	font-size: 14px;
+	font-weight: bold;
+	background-color: black;
+	color: white;
+	display:block;
+	margin:auto;
+}
+h4{
+	color: white;
+	text-align: center;
+	padding-top: 48px;
+}

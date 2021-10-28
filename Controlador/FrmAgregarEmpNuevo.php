@@ -1,78 +1,75 @@
 <?php
-require "../Modelo/conexion.php";
+require "../Modelo/Empleado.php";
 
-
-
-$objConexion = Conectarse();
-
-$sql1 ="select IdTipDoc, TipoDocumento from tipodedocumento ";
-
-
-$resultado1 = $objConexion->query($sql1);
+$Conectarse = New Empleado();
+$resultado = $Conectarse->MostrarDocumento();
+//$objConexion = Conectarse();
+//$Conectarse::Conectarse();
+//$sql1 ="select IdTipDoc, TipoDocumento from tipodedocumento ";
+//$resultado1 = $Conectarse->query($sql1);
 
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <title>Agregar empleado</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <link rel="stylesheet" href="FrmAgregarEmpNuevo.css">
 </head>
 
 <body>
   <form id="form1" name="form1" method="post" action="ValidarAgregarEmpNuevo.php">
+  <h3>
+    <a class="button" href="Inicio.php">Cerrar sesión</a>
+  </h3>
 <center>
-    <table width="40%" border="3" align="center">
+    <table  align="center">
       <tr>
-        <td colspan="2" align="center" bgcolor="#FFCC00">Registro del empleado</td>
+        <td id="docum" colspan="2" align="center">Registro del empleado</td>
       </tr>
       <tr>
-        </select></td>
-        <td align="right" bgcolor="#EAEAEA">Nombre</td>
+        <td id="nombr" align="right" >Nombre</td>
         <td><label for="Nombre"></label>
-          <input required name="Nombre" type="text" id="Nombre" size="40" /></td>
-        </td>
+        <input required name="Nombre" type="text" id="Nombre" size="40" /></td>
+      </tr>
       <tr>
-        <td  align="right" bgcolor="#EAEAEA">Tipo de documento</td>
+        <td id="docu" align="right" >Tipo de documento</td>
         <td><label  for="TIPODEDOCUMENTO_IdTipDoc"></label>
-          <select required name="TIPODEDOCUMENTO_IdTipDoc" id="TIPODEDOCUMENTO_IdTipDoc" size="0" style="width:318px" title="Ficha en la que se encuentra el aprendiz">
+  
+          <select required name="TIPODEDOCUMENTO_IdTipDoc" id="TIPODEDOCUMENTO_IdTipDoc" size="0" style="width:318px" >
             <option  value="0">Seleccione</option>
-            <?php
-            while ($TIPODEDOCUMENTO_IdTipDoc = $resultado1->fetch_object()) {
+            <?php 
+            while ($TIPODEDOCUMENTO_IdTipDoc = $resultado->fetch_object()) {
             ?>
-              <option value="<?php echo $TIPODEDOCUMENTO_IdTipDoc->IdTipDoc?>"><?php echo $TIPODEDOCUMENTO_IdTipDoc->TipoDocumento ?></option>
+            <option value="<?php echo $TIPODEDOCUMENTO_IdTipDoc->IdTipDoc?>"><?php echo $TIPODEDOCUMENTO_IdTipDoc->TipoDocumento ?></option>
             <?php
             }
-
             ?>
           </select>
+        </td>
+      </tr>
       <tr>
-       <td align="right" bgcolor="#EAEAEA">Número de documento</td>
+       <td id="nume" align="right" >Número de documento</td>
         <td><label for="NumDoc"></label>
           <input required name="NumDoc" type="text" id="NumDoc" size="40" /></td>
         </td>
       </tr>
-            <tr>
-       <td align="right" bgcolor="#EAEAEA">Celular</td>
+      <tr>
+       <td id="cel" align="right" >Celular</td>
         <td><label for="Celular"></label>
           <input required name="Celular" type="text" id="Celular" size="40" /></td>
-        </td>
       </tr>
-       <tr>
-        <td align="right" bgcolor="#EAEAEA">Fecha de nacimiento</td>
+      <tr>
+        <td id="fecha" align="right" >Fecha de nacimiento</td>
         <td><label for="FechaNac"></label>
-          <input required name="FechaNac" type="date" id="FechaNac" size="40" /></td>
+          <input id="nac" required name="FechaNac" type="date" id="FechaNac" size="40" /></td>
       </tr>
-        </select>
-        <tr>
-
-        </tr>
-        <tr>
-          <td class="button" colspan="2" align="center" bgcolor="#FFCC00"><input type="submit" name="button" id="button" value="Enviar" /></td>
-        </tr>
+      <tr>
+          <td id="esreg" class="button" colspan="2" align="center" ><input type="submit" name="button" id="butto" value="Enviar" /></td>
+      </tr>
     </table>
-    <tr>
-    <a class="button" href="JefeMenu.php"><input type="button" value="Cancelar"></a>
+    <a  class="button" href="JefeMenu.php"><input id="can" type="button" value="Cancelar"></a>
   </center>
   </form>
 </body>

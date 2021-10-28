@@ -1,29 +1,24 @@
 <?php
-require "../Modelo/conexion.php";
 
+require "../Modelo/Empleado.php";
 
-
-$objConexion = Conectarse();
-?>
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Modificar</title>
-</head>
-<body>
-	<?php 
+$Clase = new Empleado();
 
     $Nombre =$_POST['Nombre'];
-    $TIPODEDOCUMENTO_IdTipDoc =$_POST['TIPODEDOCUMENTO_IdTipDoc'];
-    $NumDoc =$_POST['NumDoc'];
+    //$TIPODEDOCUMENTO_IdTipDoc =$_POST['TIPODEDOCUMENTO_IdTipDoc'];
+    $NumDoc =$_POST['Docu'];
     $Celular =$_POST['Celular'];
-    $FechaNac =$_POST['FechaNac'];
+    //$FechaNac =$_POST['FechaNac'];
+    
+    $fun = $Clase->ModificarEmpleado($Nombre,$Celular,$NumDoc);
+    if ($fun) {
+    	echo "Datos Actualizados Correctamente";
+    }
+    else {
+    	echo "Error al Actualizar los Datos";
+    }
+    //or die ("Error al Actualizar los Datos");
+    //echo "Datos Actualizados Correctamente";
 
-    mysqli_query($objConexion,"UPDATE empleado set Nombre = '$Nombre',TIPODEDOCUMENTO_IdTipDoc = '$TIPODEDOCUMENTO_IdTipDoc', Celular = '$Celular', FechaNac= '$FechaNac'WHERE NumDoc= '$NumDoc'")
-    or die ("Error al Actualizar los Datos");
-    echo "Datos Actualizados Correctamente";
+?>
 
-	 ?>
-
-</body>
-</html>

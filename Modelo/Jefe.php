@@ -1,16 +1,18 @@
 <?php
-require_once(realpath(dirname(__FILE__)) . '/Contraseña.php');
+/*require_once(realpath(dirname(__FILE__)) . '/Contraseña.php');
 require_once(realpath(dirname(__FILE__)) . '/Clave.php');
 require_once(realpath(dirname(__FILE__)) . '/Rol.php');
-require_once(realpath(dirname(__FILE__)) . '/TipoDocumento.php');
+require_once(realpath(dirname(__FILE__)) . '/TipoDocumento.php');*/
+require "../Modelo/conexion.php";
 
-use Contraseña;
+/*use Contraseña;
 use Clave;
 use Rol;
-use TipoDocumento;
+use TipoDocumento;*/
 
 class Jefe {
 
+	private $Conectar;
 	private $IdJefe;
 	private $Nombre;
 	private $NumDoc;
@@ -20,7 +22,7 @@ class Jefe {
 	private $TipoDeDocumento_IdTipDoc;
 
 	public function Jefe() {
-		
+		$this ->Conectar = con::Conectarse();
 	}
 
 	public function getIdJefe() {
@@ -67,9 +69,9 @@ class Jefe {
 		return $this->Rol_idRol;
 	}
 
-	public function setIdJefe($Rol_idRol) {
+	/*public function setIdJefe($Rol_idRol) {
 		$this->Rol_idRol = $Rol_idRol;
-	}
+	}*/
 
 	public function getTipoDeDocumento_IdTipDoc() {
 		return $this->TipoDeDocumento_IdTipDoc;
@@ -79,21 +81,29 @@ class Jefe {
 		$this->TipoDeDocumento_IdTipDoc = $TipoDeDocumento_IdTipDoc;
 	}
 
-	$this->IdJefe=$IdJefe;
+	/*$this->IdJefe=$IdJefe;
 	$this->Nombre=$Nombre;
 	$this->NumDoc=$NumDoc;
 	$this->Clave_IdClave=$Clave_IdClave;
 	$this->Contraseña_IdContraseña=$Contraseña_IdContraseña;
 	$this->Rol_idRol=$Rol_idRol;
-	$this->TipoDeDocumento_IdTipDoc=$TipoDeDocumento_IdTipDoc;
+	$this->TipoDeDocumento_IdTipDoc=$TipoDeDocumento_IdTipDoc;*/
 
-	public function AgregarJefe() {
-		$this->Conexion=Conectarse();
-		$sql="insert into jefe(IdJefe, Nombre, NumDoc,Clave_IdClave,Contraseña_IdContraseña,Rol_idRol,TipoDeDocumento_IdTipDoc)
-		values ('$this->IdJefe','$this->Nombre','$this->NumDoc','$this->Clave_IdClave','$this->Contraseña_IdContraseña','$this->Rol_idRol','$this->TipoDeDocumento_IdTipDoc')";
-		$resultado=$this->Conexion->query($sql);
-		$this->Conexion->close();
+	public function AgregarJefe($Nombre,$NumDoc,$Contraseña,$TIPODEDOCUMENTO_IdTipDoc) {
+		//$this->Conexion=Conectarse();
+		$MD5=md5($Contraseña);
+		$sql="insert into jefe(Nombre, NumDoc ,Contraseña ,TipoDeDocumento_IdTipDoc)
+		values ('$Nombre','$NumDoc','$MD5','$TIPODEDOCUMENTO_IdTipDoc')";
+		$resultado=$this->Conectar->query($sql);
+		$this->Conectar->close();
 		return $resultado;	
+	}
+
+	public function MostrarDoc() {
+		$consulta = "select IdTipDoc, TipoDocumento from tipodedocumento ";
+		$resultado=$this ->Conectar->query($consulta);
+		$this->Conectar->close();
+		return $resultado;
 	}
 
 	public function EliminarJefe() {

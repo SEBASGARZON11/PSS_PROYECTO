@@ -1,41 +1,52 @@
 <?php
-require "../Modelo/conexion.php";
+require "../Modelo/Jefe.php";
 
-
-
-$objConexion = Conectarse();
-
-$sql1 ="select IdTipDoc, TipoDocumento from tipodedocumento ";
-
-
-$resultado1 = $objConexion->query($sql1);
+$Conectarse = New Jefe(); 
+$resultado1 = $Conectarse->MostrarDoc();
+//$objConexion = Conectarse();
+//$sql1 ="select IdTipDoc, TipoDocumento from tipodedocumento ";
+//$resultado1 = $objConexion->query($sql1);
 
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <title>Registro de administrador</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <link rel="stylesheet" href="FrmAgregarJefe.css">
+  <script type="text/javascript">
+  var Confirmar=function(){
+    var contrase=document.getElementById('Contraseña').value;
+    var nombre=document.getElementById('Nombre').value;
+    var documento=document.getElementById('TIPODEDOCUMENTO_IdTipDoc').value;
+    var numDoc=document.getElementById('NumDoc').value;
+    
+    if (document.getElementById('Contraseña').value==document.getElementById('Confirmacion').value && (contrase.length>0) && (nombre.length>0) && (documento!= 0) && (numDoc.length>0)){
+      document.getElementById('button').disabled=false;
+    }else{
+      document.getElementById('button').disabled=true;
+    }
+  }
+</script>
 </head>
 
 <body>
   <form id="form1" name="form1" method="post" action="validarAgregarJefe.php">
 <center>
-    <table width="40%" border="3" align="center">
+    <table  align="center">
       <tr>
-        <td colspan="2" align="center" bgcolor="#FFCC00">Registro de administrador</td>
+        <td id="docum"colspan="2" align="center">Registro de administrador</td>
       </tr>
       <tr>
-        </select></td>
-        <td align="right" bgcolor="#EAEAEA">Nombre</td>
+        <td id="nombre" align="right">Nombre</td>
         <td><label for="Nombre"></label>
-          <input required name="Nombre" type="text" id="Nombre" size="40" /></td>
+          <input onkeyup='Confirmar();' required name="Nombre" type="text" id="Nombre" size="40" />
         </td>
       <tr>
-        <td  align="right" bgcolor="#EAEAEA">Tipo de documento</td>
+        <td  id="doc" align="right" >Tipo de documento</td>
         <td><label  for="TIPODEDOCUMENTO_IdTipDoc"></label>
-          <select required name="TIPODEDOCUMENTO_IdTipDoc" id="TIPODEDOCUMENTO_IdTipDoc" size="0" style="width:318px" title="Ficha en la que se encuentra el aprendiz">
+          <select onchange='Confirmar();' required name="TIPODEDOCUMENTO_IdTipDoc" id="TIPODEDOCUMENTO_IdTipDoc" size="0" style="width:318px" title="Ficha en la que se encuentra el aprendiz">
             <option  value="0">Seleccione</option>
             <?php
             while ($TIPODEDOCUMENTO_IdTipDoc = $resultado1->fetch_object()) {
@@ -46,34 +57,33 @@ $resultado1 = $objConexion->query($sql1);
 
             ?>
           </select>
+        </td>
+      </tr>
       <tr>
-       <td align="right" bgcolor="#EAEAEA">Número de documento</td>
+       <td id="num" align="right">Número de documento</td>
         <td><label for="NumDoc"></label>
-          <input required name="NumDoc" type="text" id="NumDoc" size="40" /></td>
+          <input onkeyup='Confirmar();' required name="NumDoc" type="text" id="NumDoc" size="40" />
         </td>
       </tr>
-            <tr>
-       <td align="right" bgcolor="#EAEAEA">Contraseña</td>
+      <tr>
+       <td id="con" align="right">Contraseña</td>
         <td><label for="Contraseña"></label>
-          <input required name="Contraseña" type="text" id="Contraseña" size="40" /></td>
+          <input onkeyup='Confirmar();' required name="Contraseña" type="password" id="Contraseña" size="40" />
         </td>
       </tr>
-           <tr>
-       <td align="right" bgcolor="#EAEAEA">Confirmar contraseña</td>
+      <tr>
+       <td id="pass" align="right">Confirmar contraseña</td>
         <td><label for="Contraseña"></label>
-          <input required name="Contraseña" type="text" id="Contraseña" size="40" /></td>
+          <input onkeyup='Confirmar();' required name="Contraseña" type="password" id="Confirmacion" size="40" />
         </td>
       </tr>
-        <tr>
-          <td class="button" colspan="2" align="center" bgcolor="#FFCC00"><input type="submit" name="button" id="button" value="Registrar" /></td>
-        </tr>
+      <tr>
+          <td id="esreg" colspan="2" align="center"><input type="submit" name="button" id="button" value="Registrar" disabled="disabled" /></td>
+      </tr>
     </table>
-    <tr>
-    <a class="button" href="Inicio.php"><input type="button" value="Cancelar"></a>
+    <a class="button" href="Inicio.php"><input id="cancelar" type="button" value="Cancelar"></a>
   </center>
   </form>
-    <tr>
-    <a class="button" href="JefeMenu.php"><input type="button" value="Menú"></a>
-</body>
 
+</body>
 </html>

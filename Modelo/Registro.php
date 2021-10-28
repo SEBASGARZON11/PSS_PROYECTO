@@ -1,12 +1,13 @@
 <?php
-require_once(realpath(dirname(__FILE__)) . '/Vehiculo.php');
+/*require_once(realpath(dirname(__FILE__)) . '/Vehiculo.php');
 require_once(realpath(dirname(__FILE__)) . '/Cobro.php');
-
 use Vehiculo;
-use Cobro;
+use Cobro;*/
+require "../Modelo/conexion.php";
 
 class Registro {
 
+	private $Conectar;
 	private $IdRegistro;
 	private $FechaIngreso;
 	private $FechaSalida;
@@ -16,7 +17,7 @@ class Registro {
 	private $Empleado_IdEmpleado;
 
 	public function Registro() {
-		
+		$this->Conectar = con::Conectarse();
 	}
 
 	public function getIdRegistro() {
@@ -75,20 +76,35 @@ class Registro {
 		$this->Empleado_IdEmpleado = $Empleado_IdEmpleado;
 	}
 
-	$this->idRegistro=$idRegistro;
+	/*$this->idRegistro=$idRegistro;
 	$this->FechaIngreso=$FechaIngreso;
 	$this->FechaSalida=$FechaSalida;
 	$this->HoraIngreso=$HoraIngreso;
 	$this->HoraSalida=$HoraSalida;
 	$this->Vehiculo_IdVehículo=$Vehiculo_IdVehículo;
-	$this->Empleado_IdEmpleado=$Empleado_IdEmpleado;
+	$this->Empleado_IdEmpleado=$Empleado_IdEmpleado;*/
 
-	public function AgregarRegistro() {
-		$this->Conexion=Conectarse();
-		$sql="insert into registro(idRegistro, FechaIngreso, FechaSalida,HoraIngreso,HoraSalida,Vehiculo_IdVehículo,Empleado_IdEmpleado)
-		values ('$this->idRegistro','$this->FechaIngreso','$this->FechaSalida','$this->HoraIngreso','$this->HoraSalida','$this->Vehiculo_IdVehículo','$this->Empleado_IdEmpleado')";
-		$resultado=$this->Conexion->query($sql);
-		$this->Conexion->close();
+	public function AgregarRegistro($TipoVehiculo_IdTipVehi,$Empleado_IdEmpleado,$FechaIngreso,$HoraIngreso,$Placa) {
+		//$this->Conexion=Conectarse,$Empleado_IdEmpleado,$FechaIngreso,$HoraIngreso,$Placa();
+		$sql="insert into registro(TipoVehiculo_IdTipVehi,Empleado_IdEmpleado,FechaIngreso, HoraIngreso, Placa)
+		values ('$TipoVehiculo_IdTipVehi','$Empleado_IdEmpleado','$FechaIngreso','$HoraIngreso', '$Placa')";
+		$resultado=$this->Conectar->query($sql);
+		$this->Conectar->close();
+		return $resultado;
+	}
+
+	public function MostrarDocumento() {
+		$consulta = "select IdEmpleado, Nombre from empleado ";
+		$resultado=$this->Conectar->query($consulta);
+		$this->Conectar->close();
+		//$consulta->execute();
+		return $resultado;
+	}
+	public function MostrarVehiculo() {
+		$consulta = "select IdTipVehi, TipoVehiculo from tipovehiculo ";
+		$resultado=$this->Conectar->query($consulta);
+		$this->Conectar->close();
+		//$consulta->execute();
 		return $resultado;
 	}
 

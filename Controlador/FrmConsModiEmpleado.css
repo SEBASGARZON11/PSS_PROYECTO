@@ -1,0 +1,57 @@
+*{
+	background-color: #0c343d;
+}
+a{
+	text-decoration: none;
+	color: white;
+}
+table{
+	width: 60%;
+	padding: 50px;
+	padding-bottom: 20px;
+	margin: 100px;
+	margin-bottom: 20px;
+	margin-top: 50px;
+}
+h3{
+	margin: 20px;
+	margin-bottom: 4px;
+	font-size: 20px;
+	text-align: right;
+	position: relative;
+}
+input{
+	height: 25px;
+	background-color: white;
+}
+#docuemnt{
+	height: 60px;
+	font-size: 40px;
+	font-weight: bold;
+	color: yellow;
+}
+#numer{
+	height: 30px;
+	font-size: 25px;
+	font-weight: bold;
+	color:	#00FFFF;
+}
+#espaci{
+	height: 50px;
+}
+#buscar{
+	height: 40px;
+	padding: 6px;
+	font-size: 14px;
+	font-weight: bold;
+	color: white;
+	background-color: black;
+}
+#cancela{
+	height: 40px;
+	padding: 6px;
+	font-size: 14px;
+	font-weight: bold;
+	color: white;
+	background-color: black;
+}

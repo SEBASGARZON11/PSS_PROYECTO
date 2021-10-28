@@ -1,25 +1,30 @@
 <?php  
-require "../Modelo/conexion.php";
+require "../Modelo/Empleado.php";
 
-$objConexion = Conectarse();
+$Conectarse = New Empleado();
+//$resultado = $Conectarse->ConsultarEmpleado();
 
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
+<title>Consultar empleados</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Consultar Empleado</title>
+<link rel="stylesheet" href="FrmConsultarEmp.css">
 </head>
 
 <body>
 <form id="form1" name="form1" method="post" action="">
-
-  <center><table width="42%" border="3" align="center">
+<h3>
+  <a class="button" href="Inicio.php">Cerrar sesión</a>
+</h3>
+  <center>
+    <table  align="center">
     <tr>
-    <td colspan="2" align="center" bgcolor="#FFCC00">CONSULTAR EMPLEADOS</td>
+    <td id="documento" colspan="2" align="center" >Consultar empleados</td>
     </tr>
     <tr>
-      <td width="37%" align="right" bgcolor="#EAEAEA">Documento</td>
+      <td id="numero" width="37%" align="right" >Número de documento</td>
       <td width="63%"><label for="NumDoc"></label>
       <input title="Ingrese su numero de documento sin puntos ni comas" name="NumDoc" type="int" id="NumDoc" size="40" required="" /></td>
     </tr>
@@ -27,58 +32,61 @@ $objConexion = Conectarse();
  <tr>
    </tr>
       <tr>
-      <td colspan="2" align="center" ><input type="submit" name="btnConsultar" value="Consultar un empleado" /></td>
+      <td id="espacio" colspan="2" align="center" ><input id="uno" type="submit" name="btnConsultar" value="Consultar un empleado" /></td>
       <tr>
     </tr>
     <tr>
     </tr> 
   </table>
+  <tr>
+  <a class="button" href="JefeMenu.php"><input id="cancel" type="button" value="Cancelar"></a>
 </center>
  </form>
  <?php
 
-$NumDoc = "";
+
 
 if (isset($_POST['btnConsultar']))
 {
   $NumDoc = $_POST["NumDoc"];
+  $Conectar = new Empleado();
+  $funcion = $Conectar ->ConsultarEmpleado($NumDoc);
 
-  $sql="select em.Nombre, tipdo.TipoDocumento, em.NumDoc, em.FechaNac, em.Celular 
-  from empleado as em inner JOIN tipodedocumento as tipdo
-  on em.TipoDeDocumento_IdTipDoc = tipdo.IdTipDoc
-  where NumDoc = $NumDoc";
-  $resultados = $objConexion->query($sql);
-  while ($consulta = mysqli_fetch_array($resultados))   
+  while ($resultados=$funcion->fetch_object()){
+    echo "Nombre: ".$resultados->Nombre."<br>";
+    echo "Tipo de documento: ".$resultados->TipoDocumento."<br>";
+    echo "Número de documento: ".$resultados->NumDoc."<br>";
+    echo "Fecha de nacimiento: ".$resultados->FechaNac."<br>";
+    echo "Celular: ".$resultados->Celular;
+  }
+  /*while ($consulta = mysqli_fetch_array($resultados))   
   {
     echo "<br> Nombre: ".$consulta['Nombre']; 
     echo "<br> Tipo de documento: ".$consulta['TipoDocumento'];
     echo "<br> Número de Identificación: ".$consulta['NumDoc'];
     echo "<br> Fecha de nacimiento: ".$consulta['FechaNac'];
     echo "<br> Celular: ".$consulta['Celular']."<br>";
-  }
+  }*/
 }
 ?> 
  <form id="form1" name="form1" method="post" action="">
 <br>
-  <td colspan="2" align="center" ><input type="submit" name="btnConsultarTodo" value="Consultar todos" /></td>
+  <td colspan="2" align="center" ><input id="todos" type="submit" name="btnConsultarTodo" value="Consultar todos" /></td>
 </form>
 
   <?php
 
 if (isset($_POST['btnConsultarTodo']))
 {
-  $sql="select em.IdEmpleado, em.Nombre, tipdo.TipoDocumento, em.NumDoc, em.FechaNac, em.Celular 
-from empleado as em inner JOIN tipodedocumento as tipdo
-on em.TipoDeDocumento_IdTipDoc = tipdo.IdTipDoc";
-  $resultados = $objConexion->query($sql);
-  while ($consulta = mysqli_fetch_array($resultados))   
+  $funcion2=$Conectarse->ConsultarTodos();
+  while ($consulta= $funcion2 ->fetch_object())   
   {
-    echo "<br> Identificación: ".$consulta['IdEmpleado'];
-    echo "<br> Nombre: ".$consulta['Nombre'];
-    echo "<br> Tipo de documento: ".$consulta['TipoDocumento'];
-    echo "<br> Número de identificación: ".$consulta['NumDoc'];
-    echo "<br> Fecha de nacimiento: ".$consulta['FechaNac'];
-    echo "<br> Celular: ".$consulta['Celular']."<br>";
+    echo " Identificador: ".$consulta->IdEmpleado."<br>";
+    echo " Nombre: ".$consulta->Nombre."<br>";
+    echo " Tipo de documento: ".$consulta->TipoDocumento."<br>";
+    echo " Número de documento: ".$consulta->NumDoc."<br>";
+    echo " Fecha de nacimiento: ".$consulta->FechaNac."<br>";
+    echo " Celular: ".$consulta->Celular."<br><br>";
 
   }
 }

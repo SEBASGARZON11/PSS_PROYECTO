@@ -1,6 +1,6 @@
 <?php
-
-function Conectarse()
+class con {
+public static function Conectarse()
 {
 	$Conexion=new mysqli("localhost","root","","pssdb");
 	
@@ -9,5 +9,5 @@ function Conectarse()
 	else
 		return $Conexion;
 }
-
+}
 ?>
