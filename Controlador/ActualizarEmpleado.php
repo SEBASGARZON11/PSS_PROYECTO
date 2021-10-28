@@ -1,4 +1,5 @@
 <?php
+
 require "../Modelo/Empleado.php";
 
 $Clase = new Empleado();
