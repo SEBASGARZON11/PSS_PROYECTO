@@ -1,3 +1,4 @@
+
 <?php
 //require_once(realpath(dirname(__FILE__)) . '/Rol.php');
 //require_once(realpath(dirname(__FILE__)) . '/TipoDocumento.php');
@@ -140,4 +141,5 @@ class Empleado {
 
 
 }
+
 ?>

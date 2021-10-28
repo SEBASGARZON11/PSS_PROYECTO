@@ -18,4 +18,5 @@ echo "El registro se ha agregado correctamente";
 else
 echo "Problemas al agregar el registro";
 
+
 ?>

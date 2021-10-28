@@ -1,3 +1,4 @@
+
 <?php
 class con {
 public static function Conectarse()
@@ -10,4 +11,5 @@ public static function Conectarse()
 		return $Conexion;
 }
 }
+
 ?>

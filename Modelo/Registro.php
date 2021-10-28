@@ -124,4 +124,5 @@ class Registro {
 		return $resultado;
 	}
 }
+
 ?>
